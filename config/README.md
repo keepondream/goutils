@@ -42,14 +42,14 @@ DB_CONNS=100
 - 调用初始化 env 变量并调用 config.InitEnv 方法解析对应数据
 
 ```
-    env := &ENV{} // 这里注意使用 & 取址
-	err := config.InitEnv(config.Config{
-		FileName:      "app",   // 指定文件名称
-		FilePath:      "",      // 指定文件路劲, 优先级最高,不为空则使用该配置进行加载
-		FileType:      "env",   // 指定文件类型
-		AddConfigPath: "conf",  // 加载配置文件路径, 默认会添加 "." ,"conf" 当前路劲和conf目录下
-	}, env)
-	if err != nil {
-		log.Fatal("init env failed err :", err)
-	}
+env := &ENV{} // 这里注意使用 & 取址
+err := config.InitEnv(config.Config{
+    FileName:      "app",   // 指定文件名称
+    FilePath:      "",      // 指定文件路劲, 优先级最高,不为空则使用该配置进行加载
+    FileType:      "env",   // 指定文件类型
+    AddConfigPath: "conf",  // 加载配置文件路径, 默认会添加 "." ,"conf" 当前路劲和conf目录下
+}, env)
+if err != nil {
+    log.Fatal("init env failed err :", err)
+}
 ```
